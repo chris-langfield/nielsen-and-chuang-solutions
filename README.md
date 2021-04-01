@@ -73,7 +73,7 @@ When we get to the penultimate input character, "1", we will overwrite it with a
 
 $-1-1-1-0-0- **2** -2-0-b-b-b-b-b-b-b-b-b-b-b-b-b- ...
 
-But now we have to go back over the 2 and the 0 to get to our next "b". We want to ignore anything other than a "b" when we're in both Q<sub3</sub> and Q<sub4</sub>:
+But now we have to go back over the 2 and the 0 to get to our next "b". We want to ignore anything other than a "b" when we're in either Q<sub>3</sub> or Q<sub>4</sub>:
 
 [9] (Q<sub>3</sub>, 0) => (Q<sub>3</sub>, 0, R)
 
