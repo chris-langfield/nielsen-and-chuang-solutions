@@ -1,5 +1,5 @@
 # nielsen-and-chuang-solutions
-Solutions to Nielsen and Chuang, "Quantum Computation and Quantum Information"
+Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Information". This is my own work and I cannot guarantee the correctness of the solutions.
 
 ## Chapter 3 
 
@@ -33,7 +33,7 @@ $-1-1-1-0-0-1-0-X-X-X-X-X-X-X-b-b-b-b-b-b- ...
 
 So first we define a program line to get us going:
 
-(Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
+[1] (Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
 
 This moves us into a new Q<sub>1</sub> state, leaves the starting square as we found it, and moves to the right (R).
 
@@ -64,6 +64,8 @@ $-1-1-1-0-0-1- **2** -0-X-X-X-X-X-X-b-b-b-b-b-b- ...
 And we're in state Q<sub>2</sub>. We haven't defined a transition for Q<sub>2</sub> when it encounters a 2. We want to just ignore this value since we already copied over what was there:
 
 (Q<sub>2</sub>, 2) => (Q<sub>2</sub>, 2, L)
+
+When we get to the penultimate input character, we will overwrite it with a 2, change to state Q<sub4</sub>, and move to the right, using expression 
 
 
 
