@@ -150,6 +150,10 @@ Program:
 
 (Q<sub>4</sub>, 2) => (Q<sub>4</sub>, 2, R)
 
+(Q<sub>3</sub>, b) => (Q<sub>5</sub>, 0, L)
+
+(Q<sub>4</sub>, b) => (Q<sub>5</sub>, 1, L)
+
 (Q<sub>5</sub>, 0) => (Q<sub>5</sub>, 0, L)
 
 (Q<sub>5</sub>, 1) => (Q<sub>5</sub>, 1, L)
