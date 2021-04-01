@@ -28,10 +28,9 @@ If we decide on the convention of iterating over the character numbers first and
 
 This gives us an ordered list of mn 5-tuples of integers, which we can convert to an ordered list of 5mn integers (by following our iterating convention above). We *could* just concatenate this large list of integers, which will be unique for each Turing Machine, and take the literal decimal value of all those numbers slapped together. But following the hint, we can also define the Turing Number as the integer having prime factorization:
 
-2<sup>1</sup> 3<sup>1</sup> 5<sup>u<sub>11</sub></sup>
+2<sup>1</sup> 3<sup>1</sup> 5<sup>u<sub>11</sub></sup> 7<sup>v<sub>11</sub></sup> 9<sup>s<sub>11</sub></sup> 11<sup>1</sup> 13<sup>2</sup> 17<sup>u<sub>12</sub></sup> 19<sup>v<sub>12</sub></sup> 23<sup>s<sub>12</sub></sup> 29<sup>1</sup> 31<sup>3</sup> ...
 
-
-
+Which would also uniquely define an integer associated with this Turing machine.
 
 
 ### 3.3
