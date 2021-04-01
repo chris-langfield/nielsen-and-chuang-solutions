@@ -1,6 +1,9 @@
 # nielsen-and-chuang-solutions
 Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Information". This is my own work and I cannot guarantee the correctness of the solutions.
 
+[Ch3](#chapter-3)
+* [Exercise 3.2](#exercise-3.2)
+
 ## Chapter 3 
 
 ### Exercise 3.2
