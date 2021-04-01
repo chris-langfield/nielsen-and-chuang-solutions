@@ -9,7 +9,7 @@ Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Infor
 
 We define an arbitrary Turing machine with states Q<sub>1</sub> ... Q<sub>m</sub>, alphabet G = {X<sub>1</sub>, ... X<sub>n</sub>}, and transition functions (program lines) (Q<sub>i</sub>, X<sub>j</sub>) => (Q<sub>ij</sub>, X<sub>ij</sub>, S), where i = 1,2,...m, and j = 1,2,...n and S=0,1,2 (1 to go right, 2, to go left, 0 to not move). 
 
-Each program line can be specified by 5 integers: i, j, u<sub>ij</sub>, v<sub>ij</sub>, and s<sub>ij</sub> where u<sub>ij</sub> is the number from 1 to m of the state specified in the program, and v<sub>ij</sub> is the character number from 1 to n of the character to be written by that line. s<sub>ij</sub> is the movement (0, 1, 2) specified given state i and character g<sub>j</sub> read. For instance if we had lines
+Each program line can be specified by 5 integers: i, j, u<sub>ij</sub>, v<sub>ij</sub>, and s<sub>ij</sub> where u<sub>ij</sub> is the number from 1 to m of the state specified in the program, and v<sub>ij</sub> is the character number from 1 to n of the character to be written by that line. s<sub>ij</sub> is the movement (0, 1, 2) specified given state Q<sub>i</sub> and character X<sub>j</sub> read. For instance if we had lines
 
 (Q<sub>1</sub>, X<sub>1</sub>) => (Q<sub>2</sub>, X<sub>1</sub>, Right)
 
