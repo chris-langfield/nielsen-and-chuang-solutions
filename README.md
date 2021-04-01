@@ -214,6 +214,31 @@ If both binary numbers end in "0", their sum will also end in "0" and so modulo 
 
 This computation is thus equivalent to taking XOR( final bit A, final bit B).
 
+We begin in state Q<sub>s</sub> with the read/write pointer at $, the beginning of the tape. We define
+
+[1] (Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
+
+We don't care about any of the first input except for the final digit, so while in state 1, we simply pass over it without changing it:
+
+[2] (Q<sub>1</sub>, 0) => (Q<sub>1</sub>, 0, R)
+
+[3] (Q<sub>1</sub>, 1) => (Q<sub>1</sub>, 1, R)
+
+Once we hit that blank between the two inputs, we know we have reached the end of the first input, and we want to read the character to our left. By the way, I'm also going to overwrite that blank with a "0" because we don't need it anymore (we're about to read the final bit of the first input, and then immediately make our way to the final bit of the second input)
+
+[4] (Q<sub>1</sub>, b) => (Q<sub>2</sub>, 0, R)
+
+If we find a "0" in that position, let's switch to a new state Q<sub>3</sub>, while if we find a "1" we'll switch to Q<sub>4</sub>. This will allow us to keep track of what the final bit was using the program state:
+
+[5] (Q<sub>2</sub>, 0) => (Q<sub>3</sub>, 0, R)
+
+[6] (Q<sub>2</sub>, 1) => (Q<sub>4</sub>, 1, R)
+
+Now we know what our first XOR argument is, and we want to keep going until we reach the end of the **second** input. Since I replaced the "b" in the middle with a "0", we can just keep going right until we hit another "b", which will be at the end of the second number:
+
+                    ------------------------------->
+$-1-1-0-0-1-0-1- **0** - 0 -1-1-0-1-0-0-0-1-...-0-1-b-b-b-b-b-b-b-b
+
 
 
 
