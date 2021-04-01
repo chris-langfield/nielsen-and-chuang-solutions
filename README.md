@@ -19,7 +19,7 @@ Machine State: Q<sub>s</sub>
 
 Program: ???
 
-**$-** 1-1-1-0-0-1-0-b-b-b-b-b-b-b-b-b-b-b-b-b- ...
+$-1-1-1-0-0-1-0-b-b-b-b-b-b-b-b-b-b-b-b-b- ...
 
 We need to read in that first "1", and somehow stick it at the end of the string, then read in the second "1", and put it right before the last character, and so on. But the thing is, if we overwrite the last character, the penultimate character, and so on, then we'll have erased information we need. Those two characters, of course, have to be the first and second characters of our output.
 
@@ -29,4 +29,6 @@ We face another problem now. If we start with the first character of input, we'l
 
 We can do less traveling up and down the tape by starting with the last character of our input, and just writing it out to the first blank space we encounter.
 
-So first we define a 
+So first we define a program line to get us going:
+
+(Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
