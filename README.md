@@ -26,7 +26,9 @@ If we decide on the convention of iterating over the character numbers first and
 [m, 1, u<sub>m1</sub>,v<sub>m1</sub>,s<sub>m1</sub>], [m,2,u<sub>m2</sub>,v<sub>m2</sub>,s<sub>m2</sub>], ... [m,n,u<sub>mn</sub>,v<sub>mn</sub>,s<sub>mn</sub>]
 
 
+This gives us an ordered list of mn 5-tuples of integers, which we can convert to an ordered list of 5mn integers (by following our iterating convention above). We *could* just concatenate this large list of integers, which will be unique for each Turing Machine, and take the literal decimal value of all those numbers slapped together. But following the hint, we can also define the Turing Number as the integer having prime factorization:
 
+2<sup>1</sup> 3<sup>1</sup> 5<sup>u<sub>11</sub></sup>
 
 
 
