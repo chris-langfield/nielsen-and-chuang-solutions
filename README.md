@@ -253,7 +253,7 @@ Once we reach the final "b", things get a little hairy. We want to remember what
 
 [11] (Q<sub>3</sub>, b) => (Q<sub>33</sub>, b, L)
 
-[12] (Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, R)
+[12] (Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, L)
 
 Now, we just need to change state based on what we read from the square left of the last blank (the last bit of the second input). Recall that if we're in state Q<sub>33</sub>, we have read a "0" from the first input. So if we read a "0" from the second input as well, let's just stay in Q<sub>33</sub> (two 3's means two zeros I guess):
 
@@ -303,7 +303,7 @@ Program:
 
 (Q<sub>1</sub>, 1) => (Q<sub>1</sub>, 1, R)
 
-(Q<sub>1</sub>, b) => (Q<sub>2</sub>, 0, R)
+(Q<sub>1</sub>, b) => (Q<sub>2</sub>, 0, L)
 
 (Q<sub>2</sub>, 0) => (Q<sub>3</sub>, 0, R)
 
@@ -319,7 +319,7 @@ Program:
 
 (Q<sub>3</sub>, b) => (Q<sub>33</sub>, b, L)
 
-(Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, R)
+(Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, L)
 
 (Q<sub>33</sub>, 0) => (Q<sub>33</sub>, 0, R)
 
