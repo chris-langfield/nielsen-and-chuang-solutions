@@ -15,7 +15,7 @@ I feel like having two tapes will either make this too trivial or make me want t
 
 We can start by coming up with any old string, say "1110010" to try stuff out on. So with an alphabet G = {0, 1, 2}, the read/write pointer beginning on the starting square, $, our tape will have the starting square, followed by our binary string, followed by blanks to infinity:
 
-Machine State: Q_s
+Machine State: Q<sub>s</sub>
 
 Program: ???
 
