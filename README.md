@@ -236,17 +236,108 @@ If we find a "0" in that position, let's switch to a new state Q<sub>3</sub>, wh
 
 Now we know what our first XOR argument is, and we want to keep going until we reach the end of the **second** input. Since I replaced the "b" in the middle with a "0", we can just keep going right until we hit another "b", which will be at the end of the second number:
 
-                    ------------------------------->
 $-1-1-0-0-1-0-1- **0** - 0 -1-1-0-1-0-0-0-1-...-0-1-b-b-b-b-b-b-b-b
 
+So in state Q<sub>3</sub> or Q<sub>4</sub>, we will ignore any "0" or "1" we encounter 
+
+[7] (Q<sub>3</sub>, 0) => (Q<sub>3</sub>, 0, R)
+
+[8] (Q<sub>3</sub>, 1) => (Q<sub>3</sub>, 1, R)
+
+[9] (Q<sub>4</sub>, 0) => (Q<sub>4</sub>, 0, R)
+
+[10] (Q<sub>4</sub>, 1) => (Q<sub>4</sub>, 1, R)
+
+Once we reach the final "b", things get a little hairy. We want to remember what our first input was (by using the program state), but we also now need to turn around and read the final bit of the second input. Let's create two new states that let us do both of those things:
 
 
+[11] (Q<sub>3</sub>, b) => (Q<sub>33</sub>, b, L)
 
+[12] (Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, R)
 
+Now, we just need to change state based on what we read from the square left of the last blank (the last bit of the second input). Recall that if we're in state Q<sub>33</sub>, we have read a "0" from the first input. So if we read a "0" from the second input as well, let's just stay in Q<sub>33</sub> (two 3's means two zeros I guess):
 
+[13] (Q<sub>33</sub>, 0) => (Q<sub>33</sub>, 0, R)
 
+[14] (Q<sub>44</sub>, 1) => (Q<sub>44</sub>, 1, R)
 
+Having done the same for Q<sub>44</sub>, we now want to handle the cases where the second input is different from the first. We can just have a new state indicating this, call it Q<sub>5</sub>:
 
+[15] (Q<sub>33</sub>, 1) => (Q<sub>5</sub>, 1, R)
 
+[16] (Q<sub>44</sub>, 0) => (Q<sub>5</sub>, 0, R)
 
+So now we are either in Q<sub>33</sub>, Q<sub>44</sub>, or Q<sub>5</sub>, and we have moved to the right, onto our "b" square. We just need to write the output here, meaning a "0" or a "1". (mod 2 can only result in either of these two numbers). If we are in states Q<sub>33</sub> or Q<sub>44</sub>, it means our final bits were "0" and "0" or "1" and "1" respectively. Thus if we XOR these, we'll get zero. If we are in state Q<sub>5</sub>, it means our final bits were different, and XORing them gives a "1". I'm going to define oooone more state that the program will enter after writing the output:
+
+[17] (Q<sub>33</sub>, b) => (Q<sub>99</sub>, 0, L)
+
+[18] (Q<sub>44</sub>, b) => (Q<sub>99</sub>, 0, L)
+
+[18] (Q<sub>5</sub>, b) => (Q<sub>99</sub>, 1, L)
+
+Now I want to erase everything to the left of my output bit, so:
+
+[19] (Q<sub>99</sub>, 0) => (Q<sub>99</sub>, b, L)
+
+[19] (Q<sub>99</sub>, 1) => (Q<sub>99</sub>, b, L)
+
+We will keep moving left along the tape in Q<sub>99</sub>, erasing everything as we go our jolly way, until we hit the starting square, $, where we can define:
+
+[20] (Q<sub>99</sub>, $) => (Q<sub>h</sub>, $, _)
+
+And halt the program. Our output will now be:
+
+$-b-b-b-b-b-b-b-b-b-b-b-b-b-b-b-...-[XOR(finalbit1, finalbit2)]-b-b-b-b-b-b-
+
+The answer is at position 2 * (length of inputs) + 1.
+
+**TL;DR**
+
+Alphabet: {0, 1} excluding $ starting and b blank
+
+Program:
+
+(Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
+
+(Q<sub>1</sub>, 0) => (Q<sub>1</sub>, 0, R)
+
+(Q<sub>1</sub>, 1) => (Q<sub>1</sub>, 1, R)
+
+(Q<sub>1</sub>, b) => (Q<sub>2</sub>, 0, R)
+
+(Q<sub>2</sub>, 0) => (Q<sub>3</sub>, 0, R)
+
+(Q<sub>2</sub>, 1) => (Q<sub>4</sub>, 1, R)
+
+(Q<sub>3</sub>, 0) => (Q<sub>3</sub>, 0, R)
+
+(Q<sub>3</sub>, 1) => (Q<sub>3</sub>, 1, R)
+
+(Q<sub>4</sub>, 0) => (Q<sub>4</sub>, 0, R)
+
+(Q<sub>4</sub>, 1) => (Q<sub>4</sub>, 1, R)
+
+(Q<sub>3</sub>, b) => (Q<sub>33</sub>, b, L)
+
+(Q<sub>4</sub>, b) => (Q<sub>44</sub>, b, R)
+
+(Q<sub>33</sub>, 0) => (Q<sub>33</sub>, 0, R)
+
+(Q<sub>44</sub>, 1) => (Q<sub>44</sub>, 1, R)
+
+(Q<sub>33</sub>, 1) => (Q<sub>5</sub>, 1, R)
+
+(Q<sub>44</sub>, 0) => (Q<sub>5</sub>, 0, R)
+
+(Q<sub>33</sub>, b) => (Q<sub>99</sub>, 0, L)
+
+(Q<sub>44</sub>, b) => (Q<sub>99</sub>, 0, L)
+
+(Q<sub>5</sub>, b) => (Q<sub>99</sub>, 1, L)
+
+(Q<sub>99</sub>, 0) => (Q<sub>99</sub>, b, L)
+
+(Q<sub>99</sub>, 1) => (Q<sub>99</sub>, b, L)
+
+(Q<sub>99</sub>, $) => (Q<sub>h</sub>, $, _)
 
