@@ -3,7 +3,7 @@ Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Infor
 
 ## Chapter 3 
 
-### 3.2
+### Exercise 3.2
 
 *(Turing numbers) Show that single-tape Turing machines can each be given a number from the list 1,2,3,... in such a way that the number uniquely specifies the corresponding machine. We call this number the Turing number of the corresponding Turing machine. (Hint: Every positive integer has a unique prime factorization pa<sub>1</sub> pa<sub>2</sub> . . . pa<sub>k</sub> , where p<sub>i</sub> are distinct prime numbers and a<sub>1</sub>,...,a<sub>k</sub> are non-negative integers.)*
 
@@ -33,7 +33,7 @@ This gives us an ordered list of mn 5-tuples of integers, which we can convert t
 Which would also uniquely define an integer associated with this Turing machine.
 
 
-### 3.3
+### Exercise 3.3
 
 *(Turing machine to reverse a bit string) Describe a Turing machine which takes a binary number x as input, and outputs the bits of x in reverse order. (Hint: In this exercise and the next it may help to use a multi-tape Turing machine and/or symbols other than ◃, 0, 1 and the blank.)*
 
@@ -189,6 +189,8 @@ Program:
 (Q<sub>2</sub>, $) => (Q<sub>h</sub>, $, _)
 
 I worked this out on paper, and validated using: [this excellent TM simulator by Adrian Stoll](https://adrianstoll.com/turing-machine/turing-machine-simulator.html)
+
+### Exercise 3.4
 
 
 
