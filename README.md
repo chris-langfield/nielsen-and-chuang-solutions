@@ -2,7 +2,9 @@
 Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Information". This is my own work and I cannot guarantee the correctness of the solutions.
 
 [Ch3](#chapter-3)
-* [Exercise 3.2](#exercise-3.2)
+* [Exercise 3.2 (Define a unique Turing number for each Turing machine)](#exercise-3.2)
+* [Exercise 3.3 (Turing machine to reverse binary string)](#exercise-3.3)
+* [Exercise 3.4 (Turing machine to add binary numbers modulo 2)](#exercise-3.4)
 
 ## Chapter 3 
 
