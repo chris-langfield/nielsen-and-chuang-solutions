@@ -5,7 +5,7 @@ Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Infor
 
 ### 3.2
 
-(Turing numbers) Show that single-tape Turing machines can each be given a number from the list 1,2,3,... in such a way that the number uniquely specifies the corresponding machine. We call this number the Turing number of the corresponding Turing machine. (Hint: Every positive integer has a unique prime factorization pa<sub>1</sub> pa<sub>2</sub> . . . pa<sub>k</sub> , where p<sub>i</sub> are distinct prime numbers and a<sub>1</sub>,...,a<sub>k</sub> are non-negative integers.)
+*(Turing numbers) Show that single-tape Turing machines can each be given a number from the list 1,2,3,... in such a way that the number uniquely specifies the corresponding machine. We call this number the Turing number of the corresponding Turing machine. (Hint: Every positive integer has a unique prime factorization p*a<sub>1</sub> p*a<sub>2</sub> . . . p*a<sub>k</sub> , where p<sub>i</sub> are distinct prime numbers and a<sub>1</sub>,...,a<sub>k</sub> are non-negative integers.)*
 
 
 
