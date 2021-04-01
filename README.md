@@ -197,6 +197,22 @@ I worked this out on paper, and validated using: [this excellent TM simulator by
 
 ### Exercise 3.4
 
+*(Turing machine to add modulo 2) Describe a Turing machine to add two binary numbers x and y modulo 2. The numbers are input on the Turing machine tape in binary, in the form x, followed by a single blank, followed by a y. If one number is not as long as the other then you may assume that it has been padded with leading 0s to make the two numbers the same length.*
+
+Our input is two binary numbers of arbitrary but equal length, separated by a blank:
+
+$-0-0-0-0-1-0-1-1-1-0-1- ... -b-1-0-1-0-0-0-1-0-1-1- ... b-b-b-b- ...
+
+If both binary numbers end in "0", their sum will also end in "0" and so modulo 2 of that number will be 0 (analogously in base-10: 30 + 40 = 70, and 70 mod 10 is 0). Similarly, if both binary numbers end in "1", their sum will end in "0" taking mod 2 will give us 0 again (consider 35 + 65 = 100, and 100 mod 10 = 0). If one number ends in a "1" and the other a "0", then their sum will end in "1" and modulo 2 of that number will be 1:
+
+| Final bit number A | Final bit number B | A+B mod 2 |
+| :---:         |     :---:      |          :---: |
+| 0   | 0     | 0    |
+| 0  | 1  | 1  |
+| 1  | 0  | 1  |
+| 1  | 1  | 0  |
+
+This computation is thus equivalent to taking XOR( final bit A, final bit B).
 
 
 
