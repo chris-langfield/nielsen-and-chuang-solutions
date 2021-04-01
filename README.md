@@ -4,7 +4,7 @@ Detailed solutions to Nielsen and Chuang, "Quantum Computation and Quantum Infor
 [Ch3](#chapter-3)
 * [Exercise 3.2 (Define a unique Turing number for each Turing machine)](#exercise-32)
 * [Exercise 3.3 (Turing machine to reverse binary string)](#exercise-33)
-* [Exercise 3.4 (Turing machine to add binary numbers modulo 2)](exercise-34)
+* [Exercise 3.4 (Turing machine to add binary numbers modulo 2)](#exercise-34)
 
 ## Chapter 3 
 
