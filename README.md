@@ -87,6 +87,83 @@ But now we have to go back over the 2 and the 0 to get to our next "b". We want 
 
 [14] (Q<sub>4</sub>, 2) => (Q<sub>4</sub>, 2, R)
 
+After switching to Q<sub>4</sub> and reaching the second blank, we're here:
+
+$-1-1-1-0-0-2-2-0- **1** -b-b-b-b-b-b-b-b-b-b-b-b- ...
+
+We're in state Q<sub>2</sub> but... according to eqn [5], this means that when we hit the 0 to our left, we'll switch to Q<sub>3</sub> and overwrite our first output character with a 2! This isn't right: we need to skip over already-written output, and the 2s, and reach our remaining input characters. So we need a new state that will allow us to go left over our output without modifying it. So if we are in state Q<sub>3</sub> or Q<sub>4</sub>, after replacing a blank with output, we need to go to a new state (**these replace equations [7] and [8]**)
+
+
+[15] (Q<sub>3</sub>, b) => (Q<sub>5</sub>, 0, L)
+
+[16] (Q<sub>4</sub>, b) => (Q<sub>5</sub>, 1, L)
+
+When in Q<sub>5</sub>, we would like to ignore any "0" or "1", because we know this is our output:
+
+[15] (Q<sub>5</sub>, 0) => (Q<sub>5</sub>, 0, L)
+
+[16] (Q<sub>5</sub>, 1) => (Q<sub>5</sub>, 1, L)
+
+But once we reach a 2, we know we've passed over our whole output string, and it is safe to switch back to Q<sub>2</sub> to start reading in input characters:
+
+[17] (Q<sub>5</sub>, 2) => (Q<sub>2</sub>, 2, L)
+
+And that's it! We can add a halt to our program by specifying:
+
+[18] (Q<sub>2</sub>, $) => (Q<sub>h</sub>, $, _)
+
+Where Q<sub>h</sub> indicates the halting state. The end result will be:
+
+$-2-2-2-2-2-2-2-0-1-0-0-1-1-1-b-b-b-b-b-b-b- ...
+
+We can clean this up by adding a new state that will help us cycle back and replace those "2"s with "b"s, but I will leave that as an exercise. 
+
+**TL;DR**
+
+Alphabet: {0, 1, 2}
+
+Program: 
+
+(Q<sub>s</sub>, $) => (Q<sub>1</sub>, $, R)
+
+(Q<sub>1</sub>, 0) => (Q<sub>1</sub>, 0, R)
+
+(Q<sub>1</sub>, 1) => (Q<sub>1</sub>, 1, R)
+
+(Q<sub>1</sub>, b) => (Q<sub>2</sub>, b, L)
+
+(Q<sub>2</sub>, 0) => (Q<sub>3</sub>, 2, R)
+
+(Q<sub>2</sub>, 1) => (Q<sub>4</sub>, 2, R)
+
+(Q<sub>2</sub>, 2) => (Q<sub>2</sub>, 2, L)
+
+(Q<sub>3</sub>, 0) => (Q<sub>3</sub>, 0, R)
+
+(Q<sub>3</sub>, 1) => (Q<sub>3</sub>, 1, R)
+
+(Q<sub>3</sub>, 2) => (Q<sub>3</sub>, 2, R)
+
+(Q<sub>4</sub>, 0) => (Q<sub>4</sub>, 0, R)
+
+(Q<sub>4</sub>, 1) => (Q<sub>4</sub>, 1, R)
+
+(Q<sub>4</sub>, 2) => (Q<sub>4</sub>, 2, R)
+
+(Q<sub>5</sub>, 0) => (Q<sub>5</sub>, 0, L)
+
+(Q<sub>5</sub>, 1) => (Q<sub>5</sub>, 1, L)
+
+(Q<sub>5</sub>, 2) => (Q<sub>2</sub>, 2, L)
+
+(Q<sub>2</sub>, $) => (Q<sub>h</sub>, $, _)
+
+I worked this out on paper, and validated using: [this excellent TM simulator by Adrian Stoll](https://adrianstoll.com/turing-machine/turing-machine-simulator.html)
+
+
+
+
+
 
 
 
